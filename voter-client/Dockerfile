@@ -7,10 +7,9 @@ RUN set -x \
   && apk upgrade
 
 RUN mkdir /client
-COPY dist/ /client
-WORKDIR /client
+COPY dist /client
 
-WORKDIR /client/dist
+WORKDIR /client
 ENV NODE_ENV=production
 RUN npm install --production
 EXPOSE 9090

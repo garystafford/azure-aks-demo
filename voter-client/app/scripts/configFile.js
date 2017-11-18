@@ -4,7 +4,7 @@
   ng.module('voterClientApp')
     .constant('EnvironmentConfig', {
       // 'apiUrl': 'http://localhost',
-      'apiUrl': 'http://voter',
-      'apiPort': '8099'
+      // 'apiPort': '8099',
+      'apiUrl': 'http://api.voter-demo.com'
     });
 }(window.angular));

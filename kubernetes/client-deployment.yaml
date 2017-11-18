@@ -18,10 +18,11 @@ spec:
         io.kompose.service: client
     spec:
       containers:
-      - image: garystafford/voter-client:0.3.34
+      - image: garystafford/voter-client:0.2.44
         name: client
         ports:
         - containerPort: 9090
         resources: {}
+        imagePullPolicy: Always
       restartPolicy: Always
 status: {}

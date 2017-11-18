@@ -23,7 +23,7 @@ spec:
         name: candidate
         ports:
         - containerPort: 8097
-        imagePullPolicy: Always
         resources: {}
+        imagePullPolicy: Always
       restartPolicy: Always
 status: {}

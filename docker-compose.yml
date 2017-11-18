@@ -24,11 +24,18 @@ services:
     ports:
     - 8099:8099/tcp
   client:
-    image: garystafford/voter-client:0.3.43
+    image: garystafford/voter-client:0.2.44
     depends_on:
     - voter
     hostname: client
     ports:
-    - 9090:9090/tcp
+    - 80:9090/tcp
+  gateway:
+    image: garystafford/voter-api-gateway:0.2.23
+    depends_on:
+    - voter
+    hostname: gateway
+    ports:
+    - 8080:8080/tcp
 networks: {}
 volumes: {}

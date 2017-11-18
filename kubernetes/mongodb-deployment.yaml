@@ -26,5 +26,6 @@ spec:
         ports:
         - containerPort: 27017
         resources: {}
+        imagePullPolicy: Always
       restartPolicy: Always
 status: {}

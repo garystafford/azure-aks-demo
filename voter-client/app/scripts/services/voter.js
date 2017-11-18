@@ -3,12 +3,12 @@
 
   ng.module('voterClientApp')
     .factory('VoterService', ['$q', '$http', 'EnvironmentConfig', function ($q, $http, EnvironmentConfig) {
-      var apiBase = EnvironmentConfig.apiUrl + ':' + EnvironmentConfig.apiPort;
+      var apiBase = EnvironmentConfig.apiUrl; // + ':' + EnvironmentConfig.apiPort;
 
       return {
         getCandidates: function () {
           var deferred = $q.defer();
-          var httpPromise = $http.get(apiBase + '/candidates');
+          var httpPromise = $http.get(apiBase + '/voter/candidates');
 
           httpPromise
             .then(function successCallback(response) {
@@ -22,7 +22,7 @@
 
         getResults: function () {
           var deferred = $q.defer();
-          var httpPromise = $http.get(apiBase + '/results');
+          var httpPromise = $http.get(apiBase + '/voter/results');
 
           httpPromise
             .then(function successCallback(response) {
@@ -36,7 +36,7 @@
 
         getResultsVotes: function () {
           var deferred = $q.defer();
-          var httpPromise = $http.get(apiBase + '/results/votes');
+          var httpPromise = $http.get(apiBase + '/voter/results/votes');
 
           httpPromise
             .then(function successCallback(response) {
@@ -50,7 +50,7 @@
 
         getWinners: function () {
           var deferred = $q.defer();
-          var httpPromise = $http.get(apiBase + '/winners');
+          var httpPromise = $http.get(apiBase + '/voter/winners');
 
           httpPromise
             .then(function successCallback(response) {
@@ -64,7 +64,7 @@
 
         getWinnersVotes: function () {
           var deferred = $q.defer();
-          var httpPromise = $http.get(apiBase + '/winners/votes');
+          var httpPromise = $http.get(apiBase + '/voter/winners/votes');
 
           httpPromise
             .then(function successCallback(response) {
@@ -80,7 +80,7 @@
           var candidateChoice = '{ "candidate": "' + candidate + '" }';
 
           var deferred = $q.defer();
-          var httpPromise = $http.post(apiBase + '/votes', candidateChoice);
+          var httpPromise = $http.post(apiBase + '/voter/votes', candidateChoice);
 
           httpPromise
             .then(function successCallback(response) {

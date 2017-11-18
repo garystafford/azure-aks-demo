@@ -23,7 +23,7 @@ spec:
         name: voter
         ports:
         - containerPort: 8099
-        imagePullPolicy: Always
         resources: {}
+        imagePullPolicy: Always
       restartPolicy: Always
 status: {}

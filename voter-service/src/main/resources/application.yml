@@ -1,5 +1,6 @@
 server:
   port: 8099
+  context-path: /voter
 spring:
   data:
    mongodb:

@@ -12,9 +12,9 @@ buildscript {
     }
 }
 
-plugins {
-    id "com.gorylenko.gradle-git-properties" version "1.4.17"
-}
+// plugins {
+//     id "com.gorylenko.gradle-git-properties" version "1.4.17"
+// }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
