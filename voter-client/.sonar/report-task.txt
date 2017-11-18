@@ -1,0 +1,5 @@
+projectKey=sonar:grunt-sonar-runner:0.1.0
+serverUrl=http://localhost:9000
+dashboardUrl=http://localhost:9000/dashboard/index/sonar:grunt-sonar-runner:0.1.0
+ceTaskId=AVwpOTWlrk9GqrWKUEc3
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AVwpOTWlrk9GqrWKUEc3

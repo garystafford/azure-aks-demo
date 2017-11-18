@@ -1,0 +1,67 @@
+{
+  "name": "voterclient",
+  "version": "0.1.0",
+  "main": "app.js",
+  "devDependencies": {
+    "aliv": "^1.2.0",
+    "async": "^2.4.0",
+    "autoprefixer-core": "^6.0.1",
+    "grunt": "^1.0.1",
+    "grunt-angular-templates": "^1.1.0",
+    "grunt-concurrent": "^2.3.1",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^2.2.0",
+    "grunt-contrib-htmlmin": "^2.4.0",
+    "grunt-contrib-imagemin": "^2.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-uglify": "^3.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-filerev": "^2.1.2",
+    "grunt-google-cdn": "^0.4.3",
+    "grunt-jscs": "^3.0.1",
+    "grunt-karma": "^2.0.0",
+    "grunt-newer": "^1.1.0",
+    "grunt-ng-annotate": "^3.0.0",
+    "grunt-postcss": "^0.9.0",
+    "grunt-sonar-runner": "^2.4.8",
+    "grunt-svgmin": "^4.0.0",
+    "grunt-usemin": "^3.0.0",
+    "grunt-wiredep": "^3.0.1",
+    "jasmine-core": "^2.6.1",
+    "jit-grunt": "^0.10.0",
+    "jshint-stylish": "^2.2.1",
+    "karma": "^1.7.0",
+    "karma-chrome-launcher": "^2.1.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "phantomjs-prebuilt": "^2.1.14",
+    "request": "^2.81.0",
+    "request-json": "^0.6.2",
+    "time-grunt": "^1.0.0",
+    "jscs": "^3.0.7"
+  },
+  "scripts": {
+    "start": "aliv",
+    "test": "karma start test/karma.conf.js"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "serve-static": "^1.11.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/garystafford/voter-client.git"
+  },
+  "author": "Gary A. Stafford <garystafford@rochester.rr.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/garystafford/voter-client/issues"
+  },
+  "homepage": "https://github.com/garystafford/voter-client",
+  "engines": {
+    "node": "stable"
+  }
+}

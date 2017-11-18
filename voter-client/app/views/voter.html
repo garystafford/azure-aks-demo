@@ -1,0 +1,66 @@
+<div ng-controller="VoterController">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-auto">
+        <h4 class="top15">Voter Client Application</h4>
+      </div>
+    </div>
+    <div class="row top15">
+      <div class="col-md-auto">
+        <form name="VoterForm">
+          <div class="form-group">
+            <label for="candidateSelect">Candidate</label>
+            <select class="form-control" id="candidateSelect"
+                    ng-options="candidate for candidate in candidates.data.candidates track by candidate"
+                    ng-model="selected">
+              <option value="">Select a Candidate...</option>
+            </select>
+          </div>
+          <div class="top15">
+            <button ng-click="PostVote()" class="btn btn-primary">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row top30">
+      <div class="col-md-auto">
+        <span class="new-vote" ng-show=vote.data.data.candidate>{{(vote.data.data.candidate) ? 'Vote for ' + vote.data.data.candidate + '!' : ''}}</span>
+      </div>
+    </div>
+    <div class="row top30">
+      <div class="col-md-auto">
+        <h5>Election Results</h5>
+        <div>
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped table-sm">
+              <thead>
+              <tr>
+                <th class="text-sm-center">#</th>
+                <th class="text-sm-center">Candidate</th>
+                <th class="text-sm-center">Votes</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="result in results.data.results | orderBy:'-votes'"
+                  ng-class="{'winners': result.votes == winnersVotes.data.votes}">
+                <td class="text-sm-center">{{ $index+1 }}</td>
+                <td>{{ result.candidate }}</td>
+                <td class="text-sm-right">{{ result.votes }}</td>
+              </tr>
+              <tfoot class="total">
+              <td class="text-sm-right" colspan="2">Total</td>
+              <td id="total-votes" class="text-sm-right"><span ng-bind=resultsCount.data.votes></span></td>
+              </tfoot>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="top15 bottom15">
+      <small><a href="https://programmaticponderings.com/">Programmatic Ponderings</a> - 2017</small>
+    </div>
+  </div>
+</div>

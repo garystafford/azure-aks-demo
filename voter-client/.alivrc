@@ -1,0 +1,7 @@
+{
+  "quiet": false,
+  "port": 9090,
+  "secure": false,
+  "pathIndex": "app",
+  "only": "app/**/*"
+}

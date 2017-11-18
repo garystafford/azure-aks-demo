@@ -1,0 +1,73 @@
+server:
+  port: 8097
+spring:
+  data:
+   mongodb:
+     host: localhost
+     port: 27017
+     database: candidates
+logging:
+ level:
+   root: INFO
+info:
+ java:
+   source: ${java.version}
+management:
+ info:
+   git:
+     mode: full
+   build:
+     enabled: true
+endpoints:
+ sensitive: false
+ enabled: true
+---
+spring:
+ profiles: docker-development
+ data:
+   mongodb:
+     host: mongodb
+---
+spring:
+ profiles: aws-production
+ data:
+   mongodb:
+     host: 10.0.1.6
+logging:
+ level:
+   root: WARN
+management:
+ info:
+   git:
+     enabled: false
+   build:
+     enabled: false
+endpoints:
+ sensitive: true
+ enabled: false
+ info:
+   enabled: true
+ health:
+   enabled: true
+---
+spring:
+ profiles: docker-production
+ data:
+   mongodb:
+     host: mongodb
+logging:
+ level:
+   root: WARN
+management:
+ info:
+   git:
+     enabled: false
+   build:
+     enabled: false
+endpoints:
+ sensitive: true
+ enabled: false
+ info:
+   enabled: true
+ health:
+   enabled: true

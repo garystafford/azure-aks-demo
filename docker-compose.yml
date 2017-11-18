@@ -1,0 +1,34 @@
+version: '2'
+
+services:
+  mongodb:
+    image: mongo:latest
+    command:
+    - --smallfiles
+    hostname: mongodb
+    ports:
+    - 27017:27017/tcp
+  candidate:
+    image: garystafford/candidate-service:0.2.28
+    depends_on:
+    - mongodb
+    hostname: candidate
+    ports:
+    - 8097:8097/tcp
+  voter:
+    image: garystafford/voter-service:0.2.104
+    depends_on:
+    - mongodb
+    - candidate
+    hostname: voter
+    ports:
+    - 8099:8099/tcp
+  client:
+    image: garystafford/voter-client:0.3.43
+    depends_on:
+    - voter
+    hostname: client
+    ports:
+    - 9090:9090/tcp
+networks: {}
+volumes: {}

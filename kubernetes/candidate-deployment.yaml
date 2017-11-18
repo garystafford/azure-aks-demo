@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: C:\Program Files\Kubernetes\kompose-windows-amd64.exe convert -f
+      docker-compose.yml
+    kompose.version: ""
+  creationTimestamp: null
+  labels:
+    io.kompose.service: candidate
+  name: candidate
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: candidate
+    spec:
+      containers:
+      - image: garystafford/candidate-service:0.2.28
+        name: candidate
+        ports:
+        - containerPort: 8097
+        imagePullPolicy: Always
+        resources: {}
+      restartPolicy: Always
+status: {}
