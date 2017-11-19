@@ -3,7 +3,7 @@
 
   ng.module('voterClientApp')
     .factory('VoterService', ['$q', '$http', 'EnvironmentConfig', function ($q, $http, EnvironmentConfig) {
-      var apiBase = EnvironmentConfig.apiUrl; // + ':' + EnvironmentConfig.apiPort;
+      var apiBase = EnvironmentConfig.apiUrl + ':' + EnvironmentConfig.apiPort;
 
       return {
         getCandidates: function () {

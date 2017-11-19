@@ -31,8 +31,9 @@ public class CandidateList {
         List<String> candidatesRemote = new ArrayList<>();
         String candidateServiceHostname = env.getProperty("services.candidate.host");
         String candidateServicePort = env.getProperty("services.candidate.port");
-        String candidateServiceResourceUrl = String.format("http://%s:%s/candidates/summary",
-                candidateServiceHostname, candidateServicePort);
+        String candidateServiceContextPath = "candidate";
+        String candidateServiceResourceUrl = String.format("http://%s:%s/%s/candidates/summary",
+                candidateServiceHostname, candidateServicePort, candidateServiceContextPath);
 
         RestTemplate restTemplate = new RestTemplate();
 

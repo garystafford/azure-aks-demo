@@ -6,14 +6,15 @@ metadata:
     kompose.version: 1.4.0 (c7964e7)
   creationTimestamp: null
   labels:
-    io.kompose.service: candidate
-  name: candidate
+    io.kompose.service: gateway
+  name: gateway
 spec:
+  type: LoadBalancer # added manually
   ports:
-  - name: "8097"
-    port: 8097
+  - name: "8080"
+    port: 8080
     targetPort: 8080
   selector:
-    io.kompose.service: candidate
+    io.kompose.service: gateway
 status:
   loadBalancer: {}

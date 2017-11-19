@@ -1,5 +1,5 @@
 server:
-  port: 8097
+  port: 8080
   context-path: /candidate
 spring:
   data:
@@ -15,8 +15,8 @@ info:
    source: ${java.version}
 management:
  info:
-   git:
-     mode: full
+   # git:
+   #   mode: full
    build:
      enabled: true
 endpoints:

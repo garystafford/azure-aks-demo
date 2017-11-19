@@ -9,11 +9,11 @@ metadata:
     io.kompose.service: client
   name: client
 spec:
-  type: LoadBalancer
+  type: LoadBalancer # added manually
   ports:
   - name: "80"
     port: 80
-    targetPort: 9090
+    targetPort: 8080
   selector:
     io.kompose.service: client
 status:

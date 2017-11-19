@@ -21,8 +21,8 @@ spec:
       - image: garystafford/voter-client:0.2.44
         name: client
         ports:
-        - containerPort: 9090
+        - containerPort: 8080
         resources: {}
-        imagePullPolicy: Always
+        imagePullPolicy: Always # added manually
       restartPolicy: Always
 status: {}

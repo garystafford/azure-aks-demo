@@ -6,33 +6,23 @@ metadata:
     kompose.version: 1.4.0 (c7964e7)
   creationTimestamp: null
   labels:
-    io.kompose.service: mongodb
-  name: mongodb
+    io.kompose.service: gateway
+  name: gateway
 spec:
   replicas: 1
-  strategy:
-    type: Recreate
+  strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: mongodb
+        io.kompose.service: gateway
     spec:
       containers:
-      - args:
-        - --smallfiles
-        image: mongo:latest
-        name: mongodb
+      - image: garystafford/voter-api-gateway:0.2.23
+        name: gateway
         ports:
-        - containerPort: 27017
+        - containerPort: 8080
         resources: {}
         imagePullPolicy: Always # added manually
-        volumeMounts:
-        - mountPath: /data/db
-          name: voter-data-vol
       restartPolicy: Always
-      volumes:
-      - name: voter-data-vol
-        persistentVolumeClaim:
-          claimName: voter-data-vol
 status: {}

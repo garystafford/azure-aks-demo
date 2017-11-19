@@ -2,9 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    kompose.cmd: C:\Program Files\Kubernetes\kompose-windows-amd64.exe convert -f
-      docker-compose.yml
-    kompose.version: ""
+    kompose.cmd: C:\Program Files\Kubernetes\kompose.exe convert -f docker-compose.yml
+    kompose.version: 1.4.0 (c7964e7)
   creationTimestamp: null
   labels:
     io.kompose.service: mongodb

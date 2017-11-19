@@ -1,5 +1,5 @@
 server:
-  port: 8099
+  port: 8080
   context-path: /voter
 spring:
   data:
@@ -16,8 +16,8 @@ info:
    target: ${java.version}
 management:
  info:
-   git:
-     mode: full
+   # git:
+   #   mode: full
    build:
      enabled: true
 services:
