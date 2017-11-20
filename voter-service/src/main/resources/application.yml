@@ -33,6 +33,7 @@ spring:
 services:
   candidate:
     host: candidate
+    port: 8080
 ---
 spring:
  profiles: aws-production
@@ -58,6 +59,7 @@ endpoints:
 services:
   candidate:
     host: candidate
+    port: 8080
 ---
 spring:
  profiles: docker-production

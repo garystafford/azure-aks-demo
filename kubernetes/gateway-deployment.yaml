@@ -18,7 +18,7 @@ spec:
         io.kompose.service: gateway
     spec:
       containers:
-      - image: garystafford/voter-api-gateway:0.2.23
+      - image: garystafford/voter-api-gateway:0.2.24
         name: gateway
         ports:
         - containerPort: 8080

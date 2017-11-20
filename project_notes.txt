@@ -60,8 +60,8 @@ Re-build Images
 docker login
 
 ./gradlew build -x test
-docker build -t garystafford/voter-service:0.2.104 .
-docker push garystafford/voter-service:0.2.104
+docker build -t garystafford/voter-service:0.2.105 .
+docker push garystafford/voter-service:0.2.105
 
 ./gradlew build -x test
 docker build -t garystafford/candidate-service:0.2.28 .
@@ -71,8 +71,8 @@ grunt build
 docker build -t garystafford/voter-client:0.2.44 .
 docker push garystafford/voter-client:0.2.44
 
-docker build -t garystafford/voter-api-gateway:0.2.23 .
-docker push garystafford/voter-api-gateway:0.2.23
+docker build -t garystafford/voter-api-gateway:0.2.24 .
+docker push garystafford/voter-api-gateway:0.2.24
 
 
 Test Locally with Docker Compose vs. Kubernetes

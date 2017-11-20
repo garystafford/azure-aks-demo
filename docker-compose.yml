@@ -18,7 +18,7 @@ services:
     - mongodb
     hostname: candidate
     ports:
-    - 8097:8080/tcp
+    - 8080:8080/tcp
     networks:
     - voter_overlay_net
   voter:
@@ -28,7 +28,7 @@ services:
     - candidate
     hostname: voter
     ports:
-    - 8099:8080/tcp
+    - 8080:8080/tcp
     networks:
     - voter_overlay_net
   client:
@@ -41,7 +41,7 @@ services:
     networks:
     - voter_overlay_net
   gateway:
-    image: garystafford/voter-api-gateway:0.2.23
+    image: garystafford/voter-api-gateway:0.2.24
     depends_on:
     - voter
     hostname: gateway

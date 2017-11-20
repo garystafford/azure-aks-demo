@@ -10,8 +10,8 @@ metadata:
   name: candidate
 spec:
   ports:
-  - name: "8097"
-    port: 8097
+  - name: "8080"
+    port: 8080
     targetPort: 8080
   selector:
     io.kompose.service: candidate
