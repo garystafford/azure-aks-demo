@@ -1,0 +1,124 @@
+================ AKS ======================
+
+Register Account Features
+-------------------------
+az provider register -n Microsoft.ContainerService
+az provider register -n Microsoft.Network
+az provider register -n Microsoft.Compute
+
+Create/Delete Kubernetes RG and Cluster
+---------------------------------------
+az group create --resource-group RG-EastUS-AKS-VoterDemo --location eastus
+
+az aks create ^
+  --name AKS-Cluster-VoterDemo ^
+  --resource-group RG-EastUS-AKS-VoterDemo ^
+  --node-count 1 --generate-ssh-keys ^
+  --kubernetes-version 1.8.2
+
+az aks get-credentials ^
+  --name AKS-Cluster-VoterDemo ^
+  --resource-group RG-EastUS-AKS-VoterDemo
+
+az aks delete --name AKS-Cluster-VoterDemo --resource-group RG-EastUS-AKS-VoterDemo
+
+Install kubectl
+---------------
+az acs kubernetes install-cli --install-location C:\Users\gary.stafford\kubectl.exe
+az acs kubernetes install-cli
+# Add to %PATH% Environment Variables
+
+Kubernetes Dashboard
+--------------------
+az aks browse --name AKS-Cluster-VoterDemo --resource-group RG-EastUS-AKS-VoterDemo
+
+Upgrade Kubernetes (didn't work!)
+---------------------------------
+az aks get-versions --name AKS-Cluster-VoterDemo --resource-group RG-EastUS-AKS-VoterDemo
+az aks upgrade ^
+  --name AKS-Cluster-VoterDemo ^
+  --resource-group RG-EastUS-AKS-VoterDemo ^
+  --kubernetes-version 1.8.2
+
+Re-build Images
+---------------
+docker login
+
+./gradlew build -x test
+docker build -t garystafford/voter-service:0.2.104 .
+docker push garystafford/voter-service:0.2.104
+
+./gradlew build -x test
+docker build -t garystafford/candidate-service:0.2.28 .
+docker push garystafford/candidate-service:0.2.28
+
+grunt build
+docker build -t garystafford/voter-client:0.2.44 .
+docker push garystafford/voter-client:0.2.44
+
+docker build -t garystafford/voter-api-gateway:0.2.23 .
+docker push garystafford/voter-api-gateway:0.2.23
+
+
+Test Locally with Docker Compose vs. Kubernetes
+-----------------------------------------------
+docker-compose up -d
+docker ps
+
+Covert Docker Compose File with kompose
+---------------------------------------
+kompose convert -f docker-compose.yml
+
+
+Create Kubenetes Resources
+--------------------------
+kubectl create -f .\voter-deployment.yaml
+kubectl create -f .\voter-service.yaml
+kubectl get services
+kubectl describe service voter
+
+Populate Candidate and Voter data
+-----------------------------------
+http://api.voter-demo.com/candidate/simulation
+http://api.voter-demo.com/voter/simulation
+
+Other Commands
+--------------
+# Shell into Pod container
+kubectl get pods
+kubectl exec -it voter-6dd484fc87-nvv6d -- /bin/sh
+
+# replace Service
+kubectl replace --force -f .\voter-deployment.yaml
+
+# delete pod (it will be replaced)
+kubectl delete pod gateway-7889d8bd4f-x6c74
+
+# view logs
+kubectl get pods
+kubectl logs voter-64c8b64dfc-2dznc
+
+kubectl get nodes
+kubectl config view
+kubectl cluster-info
+az aks get-versions ^
+  --name AKS-Cluster-VoterDemo ^
+  --resource-group RG-EastUS-AKS-VoterDemo
+
+Software
+--------
+Azure AKS Preview
+Kubernetes v1.8.2
+Docker CE for Windows v17.11.0
+Azure CLI v2.0.21
+kubectl v1.8.3 (client)
+Kompose v1.4.0
+PowerShell 5.1 (instead of Windows Command Prompt)
+Windows 10 Enterprise 64-bit laptop
+
+References
+----------
+https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough
+https://kubernetes.io/docs/tutorials/kubernetes-basics/deploy-intro/
+https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-deploy-application
+https://kubernetes.io/docs/user-guide/kubectl-cheatsheet/
