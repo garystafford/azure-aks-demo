@@ -1,13 +1,15 @@
 ================ AKS ======================
 
-Register Account Features
--------------------------
+Register Azure Account Features
+-------------------------------
 az provider register -n Microsoft.ContainerService
 az provider register -n Microsoft.Network
 az provider register -n Microsoft.Compute
 
 Create/Delete Kubernetes RG and Cluster
 ---------------------------------------
+az login
+
 az group create --resource-group RG-EastUS-AKS-VoterDemo --location eastus
 
 az aks create `
@@ -27,7 +29,8 @@ Install kubectl
 ---------------
 az acs kubernetes install-cli --install-location C:\Users\gary.stafford\kubectl.exe
 az acs kubernetes install-cli
-# Add to %PATH% Environment Variables
+
+Add to %PATH% Environment Variables
 
 Kubernetes Dashboard
 --------------------
@@ -69,7 +72,6 @@ docker ps
 Covert Docker Compose File with kompose
 ---------------------------------------
 kompose convert -f docker-compose.yml
-
 
 Create Kubenetes Resources
 --------------------------
