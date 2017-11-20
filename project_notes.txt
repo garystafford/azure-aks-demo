@@ -10,14 +10,15 @@ Create/Delete Kubernetes RG and Cluster
 ---------------------------------------
 az group create --resource-group RG-EastUS-AKS-VoterDemo --location eastus
 
-az aks create ^
-  --name AKS-Cluster-VoterDemo ^
-  --resource-group RG-EastUS-AKS-VoterDemo ^
-  --node-count 1 --generate-ssh-keys ^
+az aks create `
+  --name AKS-Cluster-VoterDemo `
+  --resource-group RG-EastUS-AKS-VoterDemo `
+  --node-count 1 `
+  --generate-ssh-keys `
   --kubernetes-version 1.8.2
 
-az aks get-credentials ^
-  --name AKS-Cluster-VoterDemo ^
+az aks get-credentials `
+  --name AKS-Cluster-VoterDemo `
   --resource-group RG-EastUS-AKS-VoterDemo
 
 az aks delete --name AKS-Cluster-VoterDemo --resource-group RG-EastUS-AKS-VoterDemo
@@ -35,9 +36,9 @@ az aks browse --name AKS-Cluster-VoterDemo --resource-group RG-EastUS-AKS-VoterD
 Upgrade Kubernetes (didn't work!)
 ---------------------------------
 az aks get-versions --name AKS-Cluster-VoterDemo --resource-group RG-EastUS-AKS-VoterDemo
-az aks upgrade ^
-  --name AKS-Cluster-VoterDemo ^
-  --resource-group RG-EastUS-AKS-VoterDemo ^
+az aks upgrade `
+  --name AKS-Cluster-VoterDemo `
+  --resource-group RG-EastUS-AKS-VoterDemo `
   --kubernetes-version 1.8.2
 
 Re-build Images
@@ -101,8 +102,8 @@ kubectl logs voter-64c8b64dfc-2dznc
 kubectl get nodes
 kubectl config view
 kubectl cluster-info
-az aks get-versions ^
-  --name AKS-Cluster-VoterDemo ^
+az aks get-versions `
+  --name AKS-Cluster-VoterDemo `
   --resource-group RG-EastUS-AKS-VoterDemo
 
 Software
