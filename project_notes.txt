@@ -8,9 +8,11 @@ az provider register -n Microsoft.Compute
 
 Create/Delete Kubernetes RG and Cluster
 ---------------------------------------
-az login
+az login --username <username> --password <password>
 
-az group create --resource-group RG-EastUS-AKS-VoterDemo --location eastus
+az group create `
+  --resource-group RG-EastUS-AKS-VoterDemo `
+  --location eastus
 
 az aks create `
   --name AKS-Cluster-VoterDemo `
@@ -23,22 +25,31 @@ az aks get-credentials `
   --name AKS-Cluster-VoterDemo `
   --resource-group RG-EastUS-AKS-VoterDemo
 
-az aks delete --name AKS-Cluster-VoterDemo --resource-group RG-EastUS-AKS-VoterDemo
+az aks delete `
+  --name AKS-Cluster-VoterDemo `
+  --resource-group RG-EastUS-AKS-VoterDemo
 
 Install kubectl
 ---------------
-az acs kubernetes install-cli --install-location C:\Users\gary.stafford\kubectl.exe
+az acs kubernetes install-cli  `
+  --install-location C:\Users\gary.stafford\kubectl.exe
+
 az acs kubernetes install-cli
 
 Add to %PATH% Environment Variables
 
 Kubernetes Dashboard
 --------------------
-az aks browse --name AKS-Cluster-VoterDemo --resource-group RG-EastUS-AKS-VoterDemo
+az aks browse `
+  --name AKS-Cluster-VoterDemo `
+  --resource-group RG-EastUS-AKS-VoterDemo
 
 Upgrade Kubernetes (didn't work!)
 ---------------------------------
-az aks get-versions --name AKS-Cluster-VoterDemo --resource-group RG-EastUS-AKS-VoterDemo
+az aks get-versions `
+  --name AKS-Cluster-VoterDemo `
+  --resource-group RG-EastUS-AKS-VoterDemo
+
 az aks upgrade `
   --name AKS-Cluster-VoterDemo `
   --resource-group RG-EastUS-AKS-VoterDemo `
