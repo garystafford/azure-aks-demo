@@ -1,6 +1,6 @@
 # Azure AKS Demo Project
 
-Project repository for the my blog post, [First Impressions of AKS, Azure’s New Managed Kubernetes Container Service] (https://wp.me/p1RD28-5D3).
+Project repository for the my blog post, [First Impressions of AKS, Azure’s New Managed Kubernetes Container Service](https://wp.me/p1RD28-5D3).
 
 ![Architecture](./pics/AKS_Demo.PNG)
 
