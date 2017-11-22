@@ -22,7 +22,7 @@ services:
     networks:
     - voter_overlay_net
   voter:
-    image: garystafford/voter-service:0.2.104
+    image: garystafford/voter-service:0.2.105
     depends_on:
     - mongodb
     - candidate
