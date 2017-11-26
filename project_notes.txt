@@ -5,6 +5,7 @@ Register Azure Account Features
 az provider register -n Microsoft.ContainerService
 az provider register -n Microsoft.Network
 az provider register -n Microsoft.Compute
+az provider register -n Microsoft.DocumentDB
 
 Create/Delete Kubernetes RG and Cluster
 ---------------------------------------
@@ -136,3 +137,21 @@ https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough
 https://kubernetes.io/docs/tutorials/kubernetes-basics/deploy-intro/
 https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-deploy-application
 https://kubernetes.io/docs/user-guide/kubectl-cheatsheet/
+
+New Notes
+=========
+Login-AzureRmAccount
+Get-AzureRMLocation
+
+az provider register -n Microsoft.DocumentDB
+az provider show -n Microsoft.DocumentDB
+
+https://docs.microsoft.com/en-us/azure/cosmos-db/create-mongodb-java
+az cosmosdb create `
+	--name voterapp `
+	--resource-group RG-EastUS-AKS-VoterDemo `
+	--location "East US=0" `
+	--kind MongoDB `
+	--debug
+
+# Will automatically try to register resource provider
